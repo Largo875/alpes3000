@@ -4,53 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alpes3000 — Conquérir les sommets alpins</title>
-<meta name="description" content="La référence des randonnées alpines au-delà de 3000 mètres. Fiches complètes, tracés GPX, classements en temps réel.">
+<meta name="description" content="La référence des randonnées alpines au-delà de 3000 mètres. 15 sommets accessibles en trail, une journée, sans équipement d'alpinisme.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#050d1a; --bg2:#07111f; --bg3:#0a1628;
-  --glass:rgba(255,255,255,0.035); --glass2:rgba(255,255,255,0.065);
-  --gb:rgba(255,255,255,0.1);
-  --ice:#c8e6f5; --muted:rgba(200,230,245,0.55);
-  --sky:#3a9dd8; --sky2:#1e6fa8;
+:root{
+  --bg:#050d1a;--bg2:#07111f;--bg3:#0a1628;
+  --glass:rgba(255,255,255,0.038);--glass2:rgba(255,255,255,0.068);
+  --ice:#c8e6f5;--muted:rgba(200,230,245,0.55);
+  --sky:#3a9dd8;--sky2:#1e6fa8;
   --gold:#e8b84b;
-  --green:#3dd68c; --red:#e05555; --amber:#e8943a;
-  --border:rgba(255,255,255,0.075); --border2:rgba(255,255,255,0.13);
-  --text:rgba(200,230,245,0.92); --text2:rgba(200,230,245,0.52); --text3:rgba(200,230,245,0.28);
-  --sans:'Space Grotesk',sans-serif; --serif:'DM Serif Display',serif;
-  --r:10px; --r2:18px;
+  --green:#3dd68c;--red:#e05555;--amber:#e8943a;--purple:#9b7fe8;
+  --border:rgba(255,255,255,0.078);--border2:rgba(255,255,255,0.14);
+  --text:rgba(200,230,245,0.92);--text2:rgba(200,230,245,0.52);--text3:rgba(200,230,245,0.28);
+  --sans:'Space Grotesk',sans-serif;--serif:'DM Serif Display',serif;
+  --r:10px;--r2:18px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
-
-/* AURORA */
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
 .ab{position:absolute;border-radius:50%;filter:blur(100px);animation:ab 16s ease-in-out infinite alternate;}
-.ab:nth-child(1){width:600px;height:600px;background:rgba(20,60,130,0.18);top:-150px;left:-100px;animation-duration:13s;}
-.ab:nth-child(2){width:500px;height:500px;background:rgba(10,80,130,0.13);top:35%;right:-80px;animation-duration:19s;animation-delay:-6s;}
-.ab:nth-child(3){width:380px;height:380px;background:rgba(50,25,100,0.11);bottom:-80px;left:32%;animation-duration:11s;animation-delay:-4s;}
+.ab:nth-child(1){width:600px;height:600px;background:rgba(20,60,130,.18);top:-150px;left:-100px;animation-duration:13s;}
+.ab:nth-child(2){width:500px;height:500px;background:rgba(10,80,130,.13);top:35%;right:-80px;animation-duration:19s;animation-delay:-6s;}
+.ab:nth-child(3){width:380px;height:380px;background:rgba(50,25,100,.11);bottom:-80px;left:32%;animation-duration:11s;animation-delay:-4s;}
 @keyframes ab{0%{transform:translate(0,0)scale(1);}100%{transform:translate(28px,18px)scale(1.09);}}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:62px;padding:0 2rem;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(5,13,26,0.72);backdrop-filter:blur(24px);
+  background:rgba(5,13,26,.75);backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border);transition:background .3s;}
-nav.scrolled{background:rgba(5,13,26,0.96);}
-.logo{font-family:var(--serif);font-size:21px;color:var(--ice);display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;}
+nav.scrolled{background:rgba(5,13,26,.97);}
+.logo{font-family:var(--serif);font-size:21px;color:var(--ice);display:flex;align-items:center;gap:9px;text-decoration:none;cursor:pointer;}
 .nav-links{display:flex;align-items:center;gap:1.4rem;}
-.nav-links a{color:var(--text2);font-size:13px;font-weight:400;text-decoration:none;transition:color .2s;cursor:pointer;}
+.nav-links a{color:var(--text2);font-size:13px;text-decoration:none;transition:color .2s;cursor:pointer;}
 .nav-links a:hover{color:var(--ice);}
 .nav-cta{background:linear-gradient(135deg,var(--sky2),var(--sky));color:#fff;font-size:13px;font-weight:600;
   padding:8px 20px;border-radius:99px;border:none;cursor:pointer;
   box-shadow:0 0 22px rgba(58,157,216,.28);transition:transform .2s,box-shadow .2s;font-family:var(--sans);}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 36px rgba(58,157,216,.48);}
-.nav-lang{display:flex;gap:4px;}
-.lang-btn{background:none;border:1px solid var(--border);color:var(--text2);font-size:11px;padding:4px 8px;
-  border-radius:6px;cursor:pointer;font-family:var(--sans);transition:all .2s;}
-.lang-btn.active,.lang-btn:hover{border-color:var(--sky);color:var(--sky);}
 
 /* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -59,37 +51,30 @@ nav.scrolled{background:rgba(5,13,26,0.96);}
   backdrop-filter:blur(12px);padding:6px 16px;border-radius:99px;font-size:12px;color:var(--sky);
   font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2rem;
   opacity:0;animation:fadeUp .6s ease .2s forwards;}
-.pulse-dot{width:6px;height:6px;background:var(--sky);border-radius:50%;animation:pulse 2s infinite;}
+.pdot{width:6px;height:6px;background:var(--sky);border-radius:50%;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.65);}}
-h1{font-family:var(--serif);font-size:clamp(3.2rem,8.5vw,7.5rem);line-height:.93;letter-spacing:-.02em;
+h1{font-family:var(--serif);font-size:clamp(3rem,8vw,7rem);line-height:.93;letter-spacing:-.02em;
   margin-bottom:1.5rem;opacity:0;animation:fadeUp .7s ease .4s forwards;}
 h1 em{font-style:italic;color:var(--gold);}
-.hero-sub{font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--text2);max-width:540px;margin:0 auto 2.5rem;
+.hero-sub{font-size:clamp(.92rem,1.7vw,1.12rem);color:var(--text2);max-width:540px;margin:0 auto 2.5rem;
   font-weight:300;line-height:1.75;opacity:0;animation:fadeUp .7s ease .6s forwards;}
 .hero-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease .8s forwards;}
 .btn-primary{background:linear-gradient(135deg,var(--sky2),var(--sky));color:#fff;font-size:15px;font-weight:600;
   padding:14px 34px;border-radius:99px;border:none;cursor:pointer;
   box-shadow:0 0 32px rgba(58,157,216,.32);transition:transform .2s,box-shadow .2s;font-family:var(--sans);}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 52px rgba(58,157,216,.52);}
-.btn-ghost{background:var(--glass);border:1px solid var(--border);color:var(--ice);font-size:15px;font-weight:500;
+.btn-ghost{background:var(--glass);border:1px solid var(--border);color:var(--ice);font-size:15px;
   padding:14px 34px;border-radius:99px;cursor:pointer;backdrop-filter:blur(12px);
   transition:background .2s,transform .2s;font-family:var(--sans);}
 .btn-ghost:hover{background:var(--glass2);transform:translateY(-2px);}
-
-/* Mountain SVG */
 .hero-mountain{margin-top:4rem;width:100%;max-width:720px;opacity:0;animation:fadeUp .8s ease 1s forwards;}
-
-/* Stats bar */
 .stats-bar{display:flex;flex-wrap:wrap;justify-content:center;margin:3rem auto 0;max-width:680px;
   background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);
   backdrop-filter:blur(22px);overflow:hidden;opacity:0;animation:fadeUp .8s ease 1.2s forwards;}
-.stat{flex:1;min-width:120px;padding:1.4rem 1rem;text-align:center;border-right:1px solid var(--border);
-  transition:background .2s;}
-.stat:last-child{border-right:none;}
-.stat:hover{background:var(--glass2);}
+.stat{flex:1;min-width:120px;padding:1.4rem 1rem;text-align:center;border-right:1px solid var(--border);transition:background .2s;}
+.stat:last-child{border-right:none;}.stat:hover{background:var(--glass2);}
 .stat-n{font-family:var(--serif);font-size:2.1rem;color:var(--gold);display:block;line-height:1;}
 .stat-l{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-top:4px;}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
 
 /* SHARED */
@@ -97,61 +82,66 @@ section{position:relative;z-index:1;}
 .wrap{max-width:1160px;margin:0 auto;padding:0 2rem;}
 .sec-head{text-align:center;margin-bottom:3rem;}
 .sec-eye{font-size:10px;color:var(--sky);font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.7rem;}
-.sec-title{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.05;letter-spacing:-.01em;}
+.sec-title{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.05;}
 .sec-title em{color:var(--gold);font-style:italic;}
 .sec-sub{color:var(--text2);font-size:.97rem;margin-top:.65rem;font-weight:300;}
-
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.on{opacity:1;transform:none;}
 
-/* HIKES */
+/* FILTERS */
 #hikes{padding:6rem 0;}
-.hikes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;}
+.filters{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;}
+.filter-btn{background:var(--glass);border:1px solid var(--border);color:var(--text2);
+  padding:7px 16px;border-radius:99px;font-size:12px;font-weight:500;cursor:pointer;
+  transition:all .2s;font-family:var(--sans);}
+.filter-btn:hover,.filter-btn.active{background:var(--glass2);color:var(--ice);border-color:var(--sky2);}
+.filter-btn.active{background:rgba(58,157,216,.12);color:var(--sky);border-color:rgba(58,157,216,.4);}
+
+/* HIKE CARDS */
+.hikes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.4rem;}
 .hike-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;
   cursor:pointer;backdrop-filter:blur(16px);
   transition:transform .3s ease,box-shadow .3s,border-color .3s;}
 .hike-card:hover{transform:translateY(-7px);box-shadow:0 22px 65px rgba(0,0,0,.55),0 0 0 1px var(--sky2);border-color:var(--sky2);}
-.hike-img{height:190px;position:relative;overflow:hidden;}
-.alt-badge{position:absolute;top:11px;right:11px;background:rgba(5,13,26,.72);backdrop-filter:blur(8px);
+.hike-card.hidden{display:none;}
+.hike-img{height:180px;position:relative;overflow:hidden;flex-shrink:0;}
+.hike-img svg{position:absolute;inset:0;width:100%;height:100%;}
+.alt-badge{position:absolute;top:11px;right:11px;background:rgba(5,13,26,.75);backdrop-filter:blur(8px);
   border:1px solid var(--border);padding:4px 10px;border-radius:99px;font-size:11px;font-weight:600;color:var(--gold);}
 .diff-badge{position:absolute;top:11px;left:11px;padding:4px 10px;border-radius:99px;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
-.diff-e{background:rgba(61,214,140,.12);color:var(--green);border:1px solid rgba(61,214,140,.28);}
+.diff-f{background:rgba(61,214,140,.12);color:var(--green);border:1px solid rgba(61,214,140,.28);}
 .diff-m{background:rgba(232,184,75,.12);color:var(--gold);border:1px solid rgba(232,184,75,.28);}
-.diff-h{background:rgba(224,85,85,.12);color:var(--red);border:1px solid rgba(224,85,85,.28);}
-.hike-body{padding:1.2rem 1.4rem 1.4rem;}
-.massif{font-size:11px;color:var(--sky);font-weight:500;text-transform:uppercase;letter-spacing:.06em;}
-.hike-name{font-family:var(--serif);font-size:1.45rem;margin:3px 0;}
-.hike-stats{display:flex;gap:1rem;padding:.8rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:.9rem 0;}
+.diff-s{background:rgba(224,85,85,.12);color:var(--red);border:1px solid rgba(224,85,85,.28);}
+.massif-tag{position:absolute;bottom:11px;left:11px;background:rgba(5,13,26,.65);backdrop-filter:blur(6px);
+  border:1px solid var(--border);padding:3px 9px;border-radius:99px;font-size:9px;font-weight:600;color:var(--sky);letter-spacing:.06em;text-transform:uppercase;}
+.hike-body{padding:1.1rem 1.3rem 1.3rem;}
+.hike-name{font-family:var(--serif);font-size:1.35rem;margin-bottom:2px;}
+.hike-region{font-size:11px;color:var(--text2);margin-bottom:.85rem;}
+.hike-stats{display:flex;gap:.8rem;padding:.75rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:.9rem;}
 .hs{flex:1;text-align:center;}
-.hs-v{font-size:.95rem;font-weight:600;color:var(--ice);display:block;}
+.hs-v{font-size:.9rem;font-weight:600;color:var(--ice);display:block;}
 .hs-k{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;}
 .hike-foot{display:flex;align-items:center;justify-content:space-between;}
-.btn-sm{background:linear-gradient(135deg,var(--sky2),var(--sky));color:#fff;border:none;padding:8px 18px;
+.best-time{font-size:11px;color:var(--text2);display:flex;align-items:center;gap:5px;}
+.best-time strong{color:var(--gold);}
+.btn-sm{background:linear-gradient(135deg,var(--sky2),var(--sky));color:#fff;border:none;padding:8px 16px;
   border-radius:99px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans);
   transition:transform .2s,box-shadow .2s;}
-.btn-sm:hover{transform:translateY(-1px);box-shadow:0 0 22px rgba(58,157,216,.4);}
-.gpx-btn{background:var(--glass);border:1px solid var(--border);color:var(--text2);padding:8px 14px;
-  border-radius:99px;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:5px;
-  transition:color .2s,border-color .2s;font-family:var(--sans);}
-.gpx-btn:hover{color:var(--ice);border-color:var(--sky2);}
+.btn-sm:hover{transform:translateY(-1px);box-shadow:0 0 20px rgba(58,157,216,.4);}
 
 /* LEADERBOARD */
 #leaderboard{padding:6rem 0;background:linear-gradient(180deg,transparent,rgba(10,22,40,.5),transparent);}
 .lb-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
 @media(max-width:720px){.lb-grid{grid-template-columns:1fr;}}
-.glass-panel{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);
-  padding:1.75rem;backdrop-filter:blur(22px);}
+.glass-panel{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);padding:1.75rem;backdrop-filter:blur(22px);}
 .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem;}
 .panel-title{font-family:var(--serif);font-size:1.35rem;}
 .live-tag{font-size:10px;padding:4px 10px;border-radius:99px;background:rgba(61,214,140,.1);
   color:var(--green);border:1px solid rgba(61,214,140,.22);font-weight:600;display:flex;align-items:center;gap:5px;}
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite;}
-.lb-row{display:flex;align-items:center;gap:.9rem;padding:.8rem .85rem;border-radius:var(--r);
-  margin-bottom:.4rem;transition:background .2s;cursor:pointer;}
+.lb-row{display:flex;align-items:center;gap:.85rem;padding:.75rem .8rem;border-radius:var(--r);margin-bottom:.35rem;transition:background .2s;cursor:pointer;}
 .lb-row:hover{background:var(--glass2);}
-.rank{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;flex-shrink:0;}
+.rank{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
 .r1{background:linear-gradient(135deg,#b8900f,#e8b84b);color:#050d1a;}
 .r2{background:linear-gradient(135deg,#7a7a7a,#b0b0b0);color:#050d1a;}
 .r3{background:linear-gradient(135deg,#8a3820,#c05830);color:#fff;}
@@ -161,27 +151,27 @@ section{position:relative;z-index:1;}
 .lb-d{font-size:10px;color:var(--text2);margin-top:2px;}
 .lb-time{font-family:var(--serif);font-size:1.05rem;color:var(--gold);white-space:nowrap;}
 .lb-summit{font-size:9px;color:var(--text2);text-align:right;}
-
-/* BADGES */
-.badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;}
+.lb-select{background:var(--glass);border:1px solid var(--border);color:var(--text);font-family:var(--sans);
+  font-size:12px;padding:6px 10px;border-radius:var(--r);cursor:pointer;outline:none;}
+.lb-select option{background:var(--bg2);color:var(--text);}
+.badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;}
 .badge-item{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);
-  padding:.9rem;text-align:center;transition:transform .2s,border-color .2s;cursor:pointer;}
-.badge-item:hover{transform:scale(1.05);border-color:var(--gold);}
-.badge-ico{font-size:1.8rem;display:block;margin-bottom:.4rem;}
-.badge-n{font-size:11px;font-weight:600;color:var(--ice);}
+  padding:.85rem;text-align:center;transition:transform .2s,border-color .2s;cursor:pointer;}
+.badge-item:hover{transform:scale(1.04);border-color:var(--gold);}
+.badge-ico{font-size:1.7rem;display:block;margin-bottom:.38rem;}
+.badge-n{font-size:10px;font-weight:600;color:var(--ice);}
 .badge-d{font-size:9px;color:var(--text2);margin-top:2px;}
-.badge-locked{opacity:.38;filter:grayscale(1);}
+.badge-locked{opacity:.35;filter:grayscale(1);}
 
 /* HOW */
 #how{padding:6rem 0;}
-.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.3rem;}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1.3rem;}
 .step-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);
   padding:1.75rem 1.4rem;backdrop-filter:blur(16px);text-align:center;
   transition:transform .3s,border-color .3s;}
 .step-card:hover{transform:translateY(-4px);border-color:var(--sky2);}
 .step-ico{font-size:1.85rem;display:block;margin-bottom:.85rem;}
-.step-num{font-family:var(--serif);font-size:2.8rem;color:transparent;
-  -webkit-text-stroke:1px rgba(200,230,245,.18);line-height:1;margin-bottom:.4rem;}
+.step-num{font-family:var(--serif);font-size:2.8rem;color:transparent;-webkit-text-stroke:1px rgba(200,230,245,.18);line-height:1;margin-bottom:.4rem;}
 .step-t{font-family:var(--serif);font-size:1.25rem;margin-bottom:.45rem;}
 .step-d{font-size:12px;color:var(--text2);line-height:1.65;}
 
@@ -190,25 +180,20 @@ section{position:relative;z-index:1;}
 .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
 @media(max-width:720px){.price-grid{grid-template-columns:1fr;}}
 .price-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);
-  padding:2.4rem 2rem;text-align:center;backdrop-filter:blur(22px);position:relative;overflow:hidden;
-  transition:transform .3s;}
+  padding:2.4rem 2rem;text-align:center;backdrop-filter:blur(22px);position:relative;overflow:hidden;transition:transform .3s;}
 .price-card:hover{transform:translateY(-4px);}
 .price-card.feat{border-color:var(--sky2);box-shadow:0 0 55px rgba(30,111,168,.18);}
-.price-card.feat::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at top,rgba(30,111,168,.09),transparent 60%);pointer-events:none;}
-.rec-tag{position:absolute;top:0;left:50%;transform:translateX(-50%);
-  background:linear-gradient(135deg,var(--sky2),var(--sky));
-  padding:4px 22px;border-radius:0 0 12px 12px;
-  font-size:10px;font-weight:700;color:#fff;letter-spacing:.07em;text-transform:uppercase;}
+.price-card.feat::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(30,111,168,.09),transparent 60%);pointer-events:none;}
+.rec-tag{position:absolute;top:0;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--sky2),var(--sky));
+  padding:4px 22px;border-radius:0 0 12px 12px;font-size:10px;font-weight:700;color:#fff;letter-spacing:.07em;text-transform:uppercase;}
 .plan-name{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;margin-top:1.8rem;}
 .price-amt{font-family:var(--serif);font-size:3.4rem;color:var(--ice);line-height:1;}
 .price-amt span{font-size:1rem;color:var(--text2);font-family:var(--sans);font-weight:400;}
 .feats{list-style:none;text-align:left;margin:1.85rem 0;display:flex;flex-direction:column;gap:.8rem;}
-.feats li{font-size:13px;display:flex;align-items:center;gap:9px;}
-.ck{color:var(--green);}
-.cx{color:var(--red);}
+.feats li{font-size:13px;display:flex;align-items:flex-start;gap:9px;}
+.ck{color:var(--green);flex-shrink:0;margin-top:1px;}
+.cx{color:var(--red);flex-shrink:0;margin-top:1px;}
 
-/* FOOTER */
 footer{border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;color:var(--text2);font-size:12px;position:relative;z-index:1;}
 .footer-logo{font-family:var(--serif);font-size:1.7rem;color:var(--ice);margin-bottom:.5rem;}
 .footer-links{display:flex;justify-content:center;gap:1.4rem;margin-top:.9rem;flex-wrap:wrap;}
@@ -216,34 +201,39 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;co
 .footer-links a:hover{color:var(--ice);}
 
 /* MODAL */
-.overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(5,13,26,.87);
-  backdrop-filter:blur(10px);align-items:center;justify-content:center;}
+.overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(5,13,26,.88);
+  backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:1rem;}
 .overlay.open{display:flex;}
 .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);
-  padding:2.4rem;max-width:540px;width:92%;position:relative;max-height:88vh;overflow-y:auto;
+  padding:2.4rem;max-width:580px;width:100%;position:relative;max-height:90vh;overflow-y:auto;
   animation:fadeUp .28s ease;}
 .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;
   color:var(--text2);font-size:1.2rem;cursor:pointer;transition:color .2s;font-family:var(--sans);}
 .modal-close:hover{color:var(--ice);}
 .modal-tag{font-size:10px;color:var(--sky);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;display:block;}
-.modal-title{font-family:var(--serif);font-size:1.9rem;margin-bottom:1rem;}
-.info-row{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--border);}
-.info-row:last-of-type{border-bottom:none;}
-.ik{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;}
-.iv{font-size:13px;font-weight:600;color:var(--ice);}
-.modal-acts{display:flex;gap:.85rem;margin-top:1.4rem;flex-wrap:wrap;}
-.form-group{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1rem;}
-.form-input{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);
-  padding:.8rem 1rem;color:var(--text);font-family:var(--sans);font-size:13px;outline:none;
-  transition:border-color .2s;width:100%;}
-.form-input:focus{border-color:var(--sky);}
-.form-input::placeholder{color:var(--text3);}
-.upload-area{border:2px dashed var(--border);border-radius:var(--r2);padding:2.2rem;text-align:center;
+.modal-title{font-family:var(--serif);font-size:2rem;margin-bottom:1.2rem;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.2rem;}
+.info-box{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:.75rem 1rem;}
+.ib-k{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;}
+.ib-v{font-size:13px;font-weight:600;color:var(--ice);}
+.info-full{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:.85rem 1rem;margin-bottom:.5rem;}
+.info-full-label{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;}
+.info-full-val{font-size:13px;color:var(--text);line-height:1.55;}
+.modal-acts{display:flex;gap:.75rem;margin-top:1.4rem;flex-wrap:wrap;}
+.modal-record{background:rgba(232,184,75,.07);border:1px solid rgba(232,184,75,.2);border-radius:var(--r);padding:.8rem 1rem;margin-bottom:1rem;}
+.modal-record-label{font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;}
+.modal-record-val{font-size:1.4rem;font-family:var(--serif);color:var(--gold);}
+.modal-record-by{font-size:11px;color:var(--text2);}
+.upload-area{border:2px dashed var(--border);border-radius:var(--r2);padding:2rem;text-align:center;
   cursor:pointer;transition:border-color .2s,background .2s;margin-top:.85rem;}
 .upload-area:hover{border-color:var(--sky2);background:rgba(30,111,168,.04);}
 .premium-note{background:rgba(232,184,75,.07);border:1px solid rgba(232,184,75,.2);
   border-radius:var(--r);padding:.8rem 1rem;font-size:12px;color:var(--gold);margin-top:.9rem;}
-
+.form-input{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);
+  padding:.8rem 1rem;color:var(--text);font-family:var(--sans);font-size:13px;outline:none;
+  transition:border-color .2s;width:100%;margin-bottom:.6rem;}
+.form-input:focus{border-color:var(--sky);}
+.form-input::placeholder{color:var(--text3);}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
@@ -251,175 +241,90 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;co
 </head>
 <body>
 
-<div class="aurora">
-  <div class="ab"></div><div class="ab"></div><div class="ab"></div>
-</div>
+<div class="aurora"><div class="ab"></div><div class="ab"></div><div class="ab"></div></div>
 
 <!-- NAV -->
 <nav id="nav">
   <a class="logo" href="#">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M14 3L26 23H2L14 3Z" stroke="rgba(200,230,245,0.55)" stroke-width="1.3" fill="none"/>
+      <path d="M14 3L26 23H2L14 3Z" stroke="rgba(200,230,245,0.5)" stroke-width="1.3" fill="none"/>
       <path d="M14 3L19 12L14 10L9 12Z" fill="rgba(200,230,245,0.1)"/>
       <path d="M9 16L14 10L19 16" stroke="#3a9dd8" stroke-width="1.3" fill="none"/>
     </svg>
     Alpes3000
   </a>
   <div class="nav-links">
-    <a onclick="goto('hikes')">Randonnées</a>
+    <a onclick="goto('hikes')">Sommets</a>
     <a onclick="goto('leaderboard')">Classements</a>
     <a onclick="goto('premium')">Premium</a>
     <a onclick="goto('how')">Anti-triche</a>
-    <div class="nav-lang">
-      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-    </div>
     <button class="nav-cta" onclick="openMod('join')">Rejoindre</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="eyebrow"><span class="pulse-dot"></span><span data-fr="+247 sommets répertoriés dans les Alpes" data-en="+247 summits listed in the Alps">+247 sommets répertoriés dans les Alpes</span></div>
-  <h1><span data-fr="Conquérir les" data-en="Conquer the">Conquérir les</span><br><em><span data-fr="Alpes à 3000m" data-en="Alps at 3000m">Alpes à 3000m</span></em></h1>
-  <p class="hero-sub" data-fr="La référence des randonnées alpines au-delà de 3000 mètres. Fiches complètes, tracés GPX, classements en temps réel — et la communauté la plus engagée des Alpes." data-en="The ultimate reference for Alpine hikes above 3,000 meters. Complete trail guides, GPX tracks, real-time leaderboards — and the most passionate Alpine community.">
-    La référence des randonnées alpines au-delà de 3000 mètres. Fiches complètes, tracés GPX, classements en temps réel — et la communauté la plus engagée des Alpes.
-  </p>
+  <div class="eyebrow"><span class="pdot"></span>15 sommets · 3000m+ · accessibles en une journée</div>
+  <h1>Conquérir les<br><em>Alpes à 3000m</em></h1>
+  <p class="hero-sub">15 sommets alpins au-delà de 3000 mètres, sélectionnés pour être faisables en trail sur une journée. Fiches complètes, GPX, et classements chronométrés vérifiés.</p>
   <div class="hero-btns">
-    <button class="btn-primary" onclick="goto('hikes')" data-fr="Explorer les sommets" data-en="Explore summits">Explorer les sommets</button>
-    <button class="btn-ghost" onclick="goto('leaderboard')" data-fr="Voir le classement" data-en="See rankings">Voir le classement</button>
+    <button class="btn-primary" onclick="goto('hikes')">Voir les 15 sommets</button>
+    <button class="btn-ghost" onclick="goto('leaderboard')">Classements</button>
   </div>
   <div class="hero-mountain">
-    <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="gsky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#050d1a" stop-opacity="0"/>
-          <stop offset="100%" stop-color="#050d1a" stop-opacity="1"/>
-        </linearGradient>
-        <linearGradient id="gpeak" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#c8e6f5" stop-opacity="0.88"/>
-          <stop offset="45%" stop-color="#3a9dd8" stop-opacity="0.45"/>
-          <stop offset="100%" stop-color="#050d1a" stop-opacity="0.75"/>
-        </linearGradient>
-        <linearGradient id="gfar" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#8ab8d8" stop-opacity="0.6"/>
-          <stop offset="100%" stop-color="#050d1a" stop-opacity="0.55"/>
-        </linearGradient>
-        <linearGradient id="gsnow" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="white" stop-opacity="0.92"/>
-          <stop offset="100%" stop-color="white" stop-opacity="0"/>
-        </linearGradient>
+        <linearGradient id="gsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#050d1a" stop-opacity="0"/><stop offset="100%" stop-color="#050d1a" stop-opacity="1"/></linearGradient>
+        <linearGradient id="gp1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c8e6f5" stop-opacity="0.88"/><stop offset="50%" stop-color="#3a9dd8" stop-opacity="0.4"/><stop offset="100%" stop-color="#050d1a" stop-opacity="0.7"/></linearGradient>
+        <linearGradient id="gp2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7aaac8" stop-opacity="0.55"/><stop offset="100%" stop-color="#050d1a" stop-opacity="0.5"/></linearGradient>
+        <linearGradient id="gsnow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.92"/><stop offset="100%" stop-color="white" stop-opacity="0"/></linearGradient>
       </defs>
-      <path d="M0 230 L70 115 L150 195 L230 75 L310 185 L390 55 L470 165 L555 88 L640 155 L700 108 L700 230Z" fill="url(#gfar)" opacity="0.28"/>
-      <path d="M0 230 L45 155 L110 215 L190 98 L275 205 L345 38 L420 175 L505 118 L588 195 L655 128 L700 165 L700 230Z" fill="url(#gpeak)" opacity="0.42"/>
-      <path d="M185 230 L345 28 L505 230Z" fill="url(#gpeak)"/>
-      <path d="M345 28 L308 92 L345 78 L382 92Z" fill="url(#gsnow)"/>
-      <path d="M345 28 L285 108" stroke="rgba(200,230,245,.5)" stroke-width="1" fill="none"/>
-      <path d="M345 28 L405 108" stroke="rgba(200,230,245,.35)" stroke-width="1" fill="none"/>
-      <line x1="347" y1="28" x2="430" y2="28" stroke="rgba(200,230,245,.28)" stroke-width="1" stroke-dasharray="3,4"/>
-      <text x="436" y="33" fill="rgba(200,230,245,.55)" font-family="Space Grotesk" font-size="11" font-weight="500">4 808 m</text>
-      <circle cx="347" cy="28" r="3" fill="#e8b84b"/>
-      <rect x="0" y="0" width="700" height="230" fill="url(#gsky)"/>
+      <path d="M0 220 L80 112 L155 190 L235 70 L315 182 L395 52 L475 162 L555 86 L640 152 L700 106 L700 220Z" fill="url(#gp2)" opacity="0.28"/>
+      <path d="M0 220 L50 155 L115 212 L195 96 L275 202 L345 36 L425 172 L508 116 L590 192 L658 126 L700 162 L700 220Z" fill="url(#gp1)" opacity="0.42"/>
+      <path d="M190 220 L345 26 L500 220Z" fill="url(#gp1)"/>
+      <path d="M345 26 L310 88 L345 75 L380 88Z" fill="url(#gsnow)"/>
+      <path d="M345 26 L282 106" stroke="rgba(200,230,245,.5)" stroke-width="1" fill="none"/>
+      <path d="M345 26 L408 106" stroke="rgba(200,230,245,.35)" stroke-width="1" fill="none"/>
+      <line x1="347" y1="26" x2="430" y2="26" stroke="rgba(200,230,245,.25)" stroke-width="1" stroke-dasharray="3,4"/>
+      <text x="436" y="31" fill="rgba(200,230,245,.55)" font-family="Space Grotesk" font-size="11" font-weight="500">3 747 m</text>
+      <circle cx="347" cy="26" r="3" fill="#e8b84b"/>
+      <rect x="0" y="0" width="700" height="220" fill="url(#gsky)"/>
     </svg>
   </div>
   <div class="stats-bar">
-    <div class="stat"><span class="stat-n" data-target="247">0</span><span class="stat-l" data-fr="Sommets" data-en="Summits">Sommets</span></div>
-    <div class="stat"><span class="stat-n" data-target="12">0</span><span class="stat-l" data-fr="Massifs" data-en="Massifs">Massifs</span></div>
-    <div class="stat"><span class="stat-n" data-target="3840">0</span><span class="stat-l" data-fr="Randonneurs" data-en="Hikers">Randonneurs</span></div>
-    <div class="stat"><span class="stat-n" data-target="186">0</span><span class="stat-l" data-fr="Tracés GPX" data-en="GPX Tracks">Tracés GPX</span></div>
+    <div class="stat"><span class="stat-n" data-target="15">0</span><span class="stat-l">Sommets</span></div>
+    <div class="stat"><span class="stat-n" data-target="7">0</span><span class="stat-l">Massifs</span></div>
+    <div class="stat"><span class="stat-n" data-target="3000">0</span><span class="stat-l">Altitude min.</span></div>
+    <div class="stat"><span class="stat-n" data-target="1">0</span><span class="stat-l">Journée max.</span></div>
   </div>
 </section>
 
-<!-- HIKES -->
+<!-- SOMMETS -->
 <section id="hikes">
 <div class="wrap">
   <div class="sec-head reveal">
-    <span class="sec-eye" data-fr="Randonnées" data-en="Hikes">Randonnées</span>
-    <h2 class="sec-title" data-fr="Les <em>sommets</em> vous attendent" data-en="The <em>summits</em> await you">Les <em>sommets</em> vous attendent</h2>
-    <p class="sec-sub" data-fr="Fiches complètes avec itinéraire, GPX, conditions et conseils de sécurité." data-en="Complete guides with route, GPX, conditions and safety tips.">Fiches complètes avec itinéraire, GPX, conditions et conseils de sécurité.</p>
+    <span class="sec-eye">Sommets sélectionnés</span>
+    <h2 class="sec-title">15 sommets <em>trail-friendly</em></h2>
+    <p class="sec-sub">Accessibles sans équipement d'alpinisme, réalisables en une journée, parfaits pour un chrono.</p>
   </div>
-  <div class="hikes-grid">
-    <div class="hike-card reveal" onclick="openMod('blanc')">
-      <div class="hike-img">
-        <svg viewBox="0 0 300 190" width="300" height="190" style="position:absolute;inset:0;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="hg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#102040"/><stop offset="100%" stop-color="#050d1a"/></linearGradient></defs>
-          <rect width="300" height="190" fill="url(#hg1)"/>
-          <path d="M0 190 L55 110 L95 148 L150 38 L210 128 L265 85 L300 105 L300 190Z" fill="rgba(58,157,216,0.22)"/>
-          <path d="M150 38 L122 85 L150 72 L178 85Z" fill="rgba(255,255,255,0.72)"/>
-          <circle cx="150" cy="38" r="2.5" fill="#e8b84b"/>
-        </svg>
-        <span class="alt-badge">4 808 m</span>
-        <span class="diff-badge diff-h" data-fr="Expert" data-en="Expert">Expert</span>
-      </div>
-      <div class="hike-body">
-        <div class="massif">Massif du Mont-Blanc</div>
-        <div class="hike-name">Mont Blanc</div>
-        <div class="hike-stats">
-          <div class="hs"><span class="hs-v">+3 800m</span><span class="hs-k" data-fr="Dénivelé" data-en="Elevation">Dénivelé</span></div>
-          <div class="hs"><span class="hs-v">2 j</span><span class="hs-k" data-fr="Durée" data-en="Duration">Durée</span></div>
-          <div class="hs"><span class="hs-v">24 km</span><span class="hs-k" data-fr="Distance" data-en="Distance">Distance</span></div>
-        </div>
-        <div class="hike-foot">
-          <button class="btn-sm" data-fr="Voir la fiche" data-en="View guide">Voir la fiche</button>
-          <button class="gpx-btn">⬇ GPX</button>
-        </div>
-      </div>
-    </div>
-    <div class="hike-card reveal" onclick="openMod('ecrins')">
-      <div class="hike-img">
-        <svg viewBox="0 0 300 190" width="300" height="190" style="position:absolute;inset:0;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e1840"/><stop offset="100%" stop-color="#050d1a"/></linearGradient></defs>
-          <rect width="300" height="190" fill="url(#hg2)"/>
-          <path d="M0 190 L75 98 L135 158 L195 48 L255 138 L300 78 L300 190Z" fill="rgba(80,100,210,0.22)"/>
-          <path d="M195 48 L170 92 L195 80 L220 92Z" fill="rgba(255,255,255,0.72)"/>
-          <circle cx="195" cy="48" r="2.5" fill="#e8b84b"/>
-        </svg>
-        <span class="alt-badge">4 102 m</span>
-        <span class="diff-badge diff-h" data-fr="Expert" data-en="Expert">Expert</span>
-      </div>
-      <div class="hike-body">
-        <div class="massif">Massif des Écrins</div>
-        <div class="hike-name">Barre des Écrins</div>
-        <div class="hike-stats">
-          <div class="hs"><span class="hs-v">+2 400m</span><span class="hs-k" data-fr="Dénivelé" data-en="Elevation">Dénivelé</span></div>
-          <div class="hs"><span class="hs-v">1,5 j</span><span class="hs-k" data-fr="Durée" data-en="Duration">Durée</span></div>
-          <div class="hs"><span class="hs-v">18 km</span><span class="hs-k" data-fr="Distance" data-en="Distance">Distance</span></div>
-        </div>
-        <div class="hike-foot">
-          <button class="btn-sm" data-fr="Voir la fiche" data-en="View guide">Voir la fiche</button>
-          <button class="gpx-btn">⬇ GPX</button>
-        </div>
-      </div>
-    </div>
-    <div class="hike-card reveal" onclick="openMod('casse')">
-      <div class="hike-img">
-        <svg viewBox="0 0 300 190" width="300" height="190" style="position:absolute;inset:0;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="hg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0c2235"/><stop offset="100%" stop-color="#050d1a"/></linearGradient></defs>
-          <rect width="300" height="190" fill="url(#hg3)"/>
-          <path d="M0 190 L38 138 L95 168 L165 52 L238 148 L288 98 L300 128 L300 190Z" fill="rgba(45,168,200,0.2)"/>
-          <path d="M165 52 L143 96 L165 84 L187 96Z" fill="rgba(255,255,255,0.74)"/>
-          <circle cx="165" cy="52" r="2.5" fill="#e8b84b"/>
-        </svg>
-        <span class="alt-badge">3 855 m</span>
-        <span class="diff-badge diff-m" data-fr="Intermédiaire" data-en="Intermediate">Intermédiaire</span>
-      </div>
-      <div class="hike-body">
-        <div class="massif">Massif de la Vanoise</div>
-        <div class="hike-name">Grande Casse</div>
-        <div class="hike-stats">
-          <div class="hs"><span class="hs-v">+1 900m</span><span class="hs-k" data-fr="Dénivelé" data-en="Elevation">Dénivelé</span></div>
-          <div class="hs"><span class="hs-v">1 j</span><span class="hs-k" data-fr="Durée" data-en="Duration">Durée</span></div>
-          <div class="hs"><span class="hs-v">14 km</span><span class="hs-k" data-fr="Distance" data-en="Distance">Distance</span></div>
-        </div>
-        <div class="hike-foot">
-          <button class="btn-sm" data-fr="Voir la fiche" data-en="View guide">Voir la fiche</button>
-          <button class="gpx-btn">⬇ GPX</button>
-        </div>
-      </div>
-    </div>
+
+  <div class="filters reveal">
+    <button class="filter-btn active" onclick="filterHikes('all',this)">Tous (15)</button>
+    <button class="filter-btn" onclick="filterHikes('Facile',this)">🟢 Facile</button>
+    <button class="filter-btn" onclick="filterHikes('Modéré',this)">🟡 Modéré</button>
+    <button class="filter-btn" onclick="filterHikes('Sportif',this)">🔴 Sportif</button>
+    <button class="filter-btn" onclick="filterHikes('Vanoise',this)">Vanoise</button>
+    <button class="filter-btn" onclick="filterHikes('Mercantour',this)">Mercantour</button>
+    <button class="filter-btn" onclick="filterHikes('Écrins',this)">Écrins</button>
+    <button class="filter-btn" onclick="filterHikes('Cerces',this)">Cerces</button>
   </div>
-  <div style="text-align:center;margin-top:2.8rem" class="reveal">
-    <button class="btn-ghost" style="font-size:14px;padding:13px 42px" data-fr="Voir les 247 sommets →" data-en="See all 247 summits →">Voir les 247 sommets →</button>
+
+  <div class="hikes-grid" id="hikesGrid">
+    <!-- Les 15 cartes sont injectées par JS -->
+  </div>
+
+  <div id="noResult" style="display:none;text-align:center;padding:3rem;color:var(--text2);font-size:14px;">
+    Aucun sommet ne correspond à ce filtre.
   </div>
 </div>
 </section>
@@ -428,55 +333,70 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;co
 <section id="leaderboard">
 <div class="wrap">
   <div class="sec-head reveal">
-    <span class="sec-eye" data-fr="Compétition" data-en="Competition">Compétition</span>
-    <h2 class="sec-title" data-fr="Qui <em>domine</em> les sommets ?" data-en="Who <em>rules</em> the summits?">Qui <em>domine</em> les sommets ?</h2>
-    <p class="sec-sub" data-fr="Soumettez vos fichiers GPX ou FIT — chaque temps est vérifié automatiquement." data-en="Submit your GPX or FIT files — every time is automatically verified.">Soumettez vos fichiers GPX ou FIT — chaque temps est vérifié automatiquement.</p>
+    <span class="sec-eye">Compétition</span>
+    <h2 class="sec-title">Qui <em>domine</em> les sommets ?</h2>
+    <p class="sec-sub">Soumettez vos fichiers GPX ou FIT — chaque temps est vérifié automatiquement. Anti-triche garanti.</p>
   </div>
   <div class="lb-grid">
     <div class="glass-panel reveal">
       <div class="panel-head">
-        <div class="panel-title">🏆 Top Vitesse — Juin</div>
-        <div class="live-tag"><span class="live-dot"></span>EN DIRECT</div>
+        <div class="panel-title">🏆 Meilleurs temps</div>
+        <div style="display:flex;align-items:center;gap:.75rem">
+          <select class="lb-select" onchange="changeLbSommet(this.value)">
+            <option value="Pain de Sucre">Pain de Sucre</option>
+            <option value="Grande Sassière">Grande Sassière</option>
+            <option value="Mont Thabor">Mont Thabor</option>
+            <option value="Mont Pelat">Mont Pelat</option>
+            <option value="Pointe des Fours">Pointe des Fours</option>
+          </select>
+          <div class="live-tag"><span class="live-dot"></span>LIVE</div>
+        </div>
       </div>
-      <div class="lb-row"><div class="rank r1">1</div><div class="lb-info"><div class="lb-n">Marc D.</div><div class="lb-d">Vérifié Garmin FIT ✓</div></div><div><div class="lb-time">4h12</div><div class="lb-summit">Grande Casse</div></div></div>
-      <div class="lb-row"><div class="rank r2">2</div><div class="lb-info"><div class="lb-n">Sophie L.</div><div class="lb-d">Vérifié GPX ✓</div></div><div><div class="lb-time">4h31</div><div class="lb-summit">Grande Casse</div></div></div>
-      <div class="lb-row"><div class="rank r3">3</div><div class="lb-info"><div class="lb-n">Thomas R.</div><div class="lb-d">Vérifié Strava ✓</div></div><div><div class="lb-time">4h58</div><div class="lb-summit">Grande Casse</div></div></div>
-      <div class="lb-row"><div class="rank rn">4</div><div class="lb-info"><div class="lb-n">Julie M.</div><div class="lb-d">Vérifié GPX ✓</div></div><div><div class="lb-time">5h20</div><div class="lb-summit">Grande Casse</div></div></div>
+      <div id="lb-rows">
+        <div class="lb-row"><div class="rank r1">1</div><div class="lb-info"><div class="lb-n">Marc D.</div><div class="lb-d">Garmin FIT vérifié ✓</div></div><div><div class="lb-time">1h28</div><div class="lb-summit">Pain de Sucre</div></div></div>
+        <div class="lb-row"><div class="rank r2">2</div><div class="lb-info"><div class="lb-n">Sophie L.</div><div class="lb-d">GPX vérifié ✓</div></div><div><div class="lb-time">1h41</div><div class="lb-summit">Pain de Sucre</div></div></div>
+        <div class="lb-row"><div class="rank r3">3</div><div class="lb-info"><div class="lb-n">Thomas R.</div><div class="lb-d">Strava vérifié ✓</div></div><div><div class="lb-time">1h52</div><div class="lb-summit">Pain de Sucre</div></div></div>
+        <div class="lb-row"><div class="rank rn">4</div><div class="lb-info"><div class="lb-n">Julie M.</div><div class="lb-d">GPX vérifié ✓</div></div><div><div class="lb-time">2h05</div><div class="lb-summit">Pain de Sucre</div></div></div>
+        <div class="lb-row"><div class="rank rn">5</div><div class="lb-info"><div class="lb-n">Lucas B.</div><div class="lb-d">Garmin FIT vérifié ✓</div></div><div><div class="lb-time">2h14</div><div class="lb-summit">Pain de Sucre</div></div></div>
+      </div>
       <div style="margin-top:1.3rem">
-        <button class="btn-sm" style="width:100%;display:block" onclick="openMod('submit')" data-fr="+ Soumettre mon temps" data-en="+ Submit my time">+ Soumettre mon temps</button>
+        <button class="btn-sm" style="width:100%;display:block" onclick="openMod('submit')">+ Soumettre mon temps</button>
       </div>
     </div>
     <div class="glass-panel reveal">
-      <div class="panel-head">
-        <div class="panel-title">🎖 Badges</div>
+      <div class="panel-head"><div class="panel-title">🎖 Badges</div>
         <span style="font-size:11px;padding:4px 10px;border-radius:99px;background:rgba(61,214,140,.1);color:var(--green);border:1px solid rgba(61,214,140,.22);font-weight:600;">3 / 12</span>
       </div>
       <div class="badge-grid">
-        <div class="badge-item"><span class="badge-ico">🥉</span><div class="badge-n" data-fr="Premier Pas" data-en="First Step">Premier Pas</div><div class="badge-d" data-fr="1 sommet" data-en="1 summit">1 sommet</div></div>
-        <div class="badge-item"><span class="badge-ico">🥈</span><div class="badge-n" data-fr="Grimpeur" data-en="Climber">Grimpeur</div><div class="badge-d" data-fr="5 sommets" data-en="5 summits">5 sommets</div></div>
-        <div class="badge-item badge-locked"><span class="badge-ico">🥇</span><div class="badge-n" data-fr="Alpiniste" data-en="Alpinist">Alpiniste</div><div class="badge-d" data-fr="15 sommets" data-en="15 summits">15 sommets</div></div>
-        <div class="badge-item badge-locked"><span class="badge-ico">💎</span><div class="badge-n">Platine</div><div class="badge-d" data-fr="30 sommets" data-en="30 summits">30 sommets</div></div>
-        <div class="badge-item badge-locked"><span class="badge-ico">⚡</span><div class="badge-n">Record</div><div class="badge-d" data-fr="Top 3 vitesse" data-en="Top 3 speed">Top 3 vitesse</div></div>
-        <div class="badge-item badge-locked"><span class="badge-ico">🏔️</span><div class="badge-n">Grand Défi</div><div class="badge-d" data-fr="20 sommets/été" data-en="20 summits/summer">20 sommets/été</div></div>
+        <div class="badge-item"><span class="badge-ico">🥉</span><div class="badge-n">Premier Pas</div><div class="badge-d">1 sommet</div></div>
+        <div class="badge-item"><span class="badge-ico">🥈</span><div class="badge-n">Grimpeur</div><div class="badge-d">5 sommets</div></div>
+        <div class="badge-item badge-locked"><span class="badge-ico">🥇</span><div class="badge-n">Alpiniste</div><div class="badge-d">10 sommets</div></div>
+        <div class="badge-item badge-locked"><span class="badge-ico">💎</span><div class="badge-n">Platine</div><div class="badge-d">15 sommets</div></div>
+        <div class="badge-item badge-locked"><span class="badge-ico">⚡</span><div class="badge-n">Record</div><div class="badge-d">Top 3 vitesse</div></div>
+        <div class="badge-item badge-locked"><span class="badge-ico">🏔️</span><div class="badge-n">Grand Défi</div><div class="badge-d">10 sommets/été</div></div>
+      </div>
+      <div style="margin-top:1.3rem;background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:1rem;text-align:center">
+        <div style="font-size:11px;color:var(--text2);margin-bottom:.5rem">Badges exclusifs — réservés aux membres Premium</div>
+        <button class="btn-sm" onclick="goto('premium')">Passer Premium →</button>
       </div>
     </div>
   </div>
 </div>
 </section>
 
-<!-- HOW -->
+<!-- ANTI-TRICHE -->
 <section id="how">
 <div class="wrap">
   <div class="sec-head reveal">
-    <span class="sec-eye" data-fr="Processus" data-en="Process">Processus</span>
-    <h2 class="sec-title" data-fr="Vérification <em>anti-triche</em>" data-en="<em>Anti-cheat</em> verification">Vérification <em>anti-triche</em></h2>
-    <p class="sec-sub" data-fr="Chaque temps soumis est analysé automatiquement en 4 étapes avant validation." data-en="Every submitted time is automatically analysed in 4 steps before validation.">Chaque temps soumis est analysé automatiquement en 4 étapes avant validation.</p>
+    <span class="sec-eye">Processus</span>
+    <h2 class="sec-title">Vérification <em>anti-triche</em></h2>
+    <p class="sec-sub">Chaque temps soumis est analysé automatiquement en 4 étapes. Impossible de falsifier.</p>
   </div>
   <div class="steps-grid">
-    <div class="step-card reveal"><span class="step-ico">📁</span><div class="step-num">01</div><div class="step-t" data-fr="Soumission" data-en="Submission">Soumission</div><p class="step-d" data-fr="Uploadez votre fichier GPX ou FIT (Garmin/Suunto) directement sur la fiche du sommet." data-en="Upload your GPX or FIT file (Garmin/Suunto) directly on the summit page.">Uploadez votre fichier GPX ou FIT (Garmin/Suunto) directement sur la fiche du sommet.</p></div>
-    <div class="step-card reveal"><span class="step-ico">🗺️</span><div class="step-num">02</div><div class="step-t" data-fr="Tracé vérifié" data-en="Route verified">Tracé vérifié</div><p class="step-d" data-fr="Notre algorithme compare votre tracé GPS avec l'itinéraire officiel. Déviation > 200m = rejeté." data-en="Our algorithm compares your GPS track to the official route. Deviation > 200m = rejected.">Notre algorithme compare votre tracé GPS avec l'itinéraire officiel. Déviation > 200m = rejeté.</p></div>
-    <div class="step-card reveal"><span class="step-ico">⛰️</span><div class="step-num">03</div><div class="step-t" data-fr="Altitude validée" data-en="Altitude validated">Altitude validée</div><p class="step-d" data-fr="Le point culminant de votre tracé doit atteindre l'altitude cible ± 10m. Anti-triche automatique." data-en="The highest point on your track must reach the target altitude ± 10m. Automatic anti-cheat.">Le point culminant de votre tracé doit atteindre l'altitude cible ± 10m. Anti-triche automatique.</p></div>
-    <div class="step-card reveal"><span class="step-ico">✅</span><div class="step-num">04</div><div class="step-t" data-fr="Classement mis à jour" data-en="Leaderboard updated">Classement mis à jour</div><p class="step-d" data-fr="Validation en moins de 60 secondes. Votre temps apparaît immédiatement dans le classement." data-en="Validated in under 60 seconds. Your time appears immediately on the leaderboard.">Validation en moins de 60 secondes. Votre temps apparaît immédiatement dans le classement.</p></div>
+    <div class="step-card reveal"><span class="step-ico">📁</span><div class="step-num">01</div><div class="step-t">Soumission</div><p class="step-d">Uploadez votre fichier GPX ou FIT (Garmin, Suunto, Coros) directement sur la fiche du sommet.</p></div>
+    <div class="step-card reveal"><span class="step-ico">🗺️</span><div class="step-num">02</div><div class="step-t">Tracé vérifié</div><p class="step-d">L'algorithme compare votre tracé GPS avec l'itinéraire officiel. Déviation > 200m = rejeté automatiquement.</p></div>
+    <div class="step-card reveal"><span class="step-ico">⛰️</span><div class="step-num">03</div><div class="step-t">Altitude validée</div><p class="step-d">Votre point culminant doit atteindre l'altitude du sommet ± 15m. Aucune exception possible.</p></div>
+    <div class="step-card reveal"><span class="step-ico">✅</span><div class="step-num">04</div><div class="step-t">Classement mis à jour</div><p class="step-d">Validation en moins de 60 secondes. Votre temps apparaît immédiatement sur le podium.</p></div>
   </div>
 </div>
 </section>
@@ -485,177 +405,416 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;co
 <section id="premium">
 <div class="wrap">
   <div class="sec-head reveal">
-    <span class="sec-eye" data-fr="Abonnement" data-en="Subscription">Abonnement</span>
-    <h2 class="sec-title" data-fr="Allez plus <em>haut</em>" data-en="Go <em>higher</em>">Allez plus <em>haut</em></h2>
-    <p class="sec-sub" data-fr="Gratuit pour explorer, Premium pour conquérir." data-en="Free to explore, Premium to conquer.">Gratuit pour explorer, Premium pour conquérir.</p>
+    <span class="sec-eye">Abonnement</span>
+    <h2 class="sec-title">Allez plus <em>haut</em></h2>
+    <p class="sec-sub">Gratuit pour explorer. Premium pour conquérir et figurer sur le podium.</p>
   </div>
   <div class="price-grid reveal">
     <div class="price-card">
-      <div class="plan-name" data-fr="Gratuit" data-en="Free">Gratuit</div>
-      <div class="price-amt">0€ <span data-fr="/ toujours" data-en="/ forever">/ toujours</span></div>
+      <div class="plan-name">Gratuit</div>
+      <div class="price-amt">0€ <span>/ toujours</span></div>
       <ul class="feats">
-        <li><span class="ck">✓</span> <span data-fr="Accès aux 247 fiches randonnées" data-en="Access to 247 hike guides">Accès aux 247 fiches randonnées</span></li>
-        <li><span class="ck">✓</span> <span data-fr="Voir les classements en temps réel" data-en="View real-time leaderboards">Voir les classements en temps réel</span></li>
-        <li><span class="ck">✓</span> <span data-fr="3 GPX téléchargeables / mois" data-en="3 GPX downloads / month">3 GPX téléchargeables / mois</span></li>
-        <li><span class="cx">✗</span> <span data-fr="Participer aux concours chronométrés" data-en="Enter timed competitions">Participer aux concours chronométrés</span></li>
-        <li><span class="cx">✗</span> <span data-fr="GPX illimités" data-en="Unlimited GPX">GPX illimités</span></li>
-        <li><span class="cx">✗</span> <span data-fr="Badges exclusifs & certificats PDF" data-en="Exclusive badges & PDF certificates">Badges exclusifs & certificats PDF</span></li>
+        <li><span class="ck">✓</span>Accès aux 15 fiches sommets</li>
+        <li><span class="ck">✓</span>Voir les classements en temps réel</li>
+        <li><span class="ck">✓</span>Télécharger 3 GPX / mois</li>
+        <li><span class="cx">✗</span>Soumettre un temps et figurer au classement</li>
+        <li><span class="cx">✗</span>GPX illimités</li>
+        <li><span class="cx">✗</span>Badges exclusifs & certificats PDF</li>
       </ul>
-      <button class="btn-ghost" style="width:100%;font-size:14px;padding:13px" data-fr="Commencer gratuitement" data-en="Start for free">Commencer gratuitement</button>
+      <button class="btn-ghost" style="width:100%;font-size:14px;padding:13px">Commencer gratuitement</button>
     </div>
     <div class="price-card feat">
-      <div class="rec-tag" data-fr="⭐ RECOMMANDÉ" data-en="⭐ RECOMMENDED">⭐ RECOMMANDÉ</div>
+      <div class="rec-tag">⭐ RECOMMANDÉ</div>
       <div class="plan-name">Premium</div>
       <div class="price-amt">4,99€ <span>/ mois</span></div>
       <ul class="feats">
-        <li><span class="ck">✓</span> <span data-fr="Tout du plan Gratuit" data-en="Everything in Free">Tout du plan Gratuit</span></li>
-        <li><span class="ck">✓</span> <span data-fr="Participer aux concours + figurer sur le podium" data-en="Enter competitions + appear on the podium">Participer aux concours + figurer sur le podium</span></li>
-        <li><span class="ck">✓</span> <span data-fr="GPX illimités + cartes hors-ligne" data-en="Unlimited GPX + offline maps">GPX illimités + cartes hors-ligne</span></li>
-        <li><span class="ck">✓</span> <span data-fr="Badges Premium exclusifs (Or, Platine, Grand Défi…)" data-en="Exclusive Premium badges (Gold, Platinum, Grand Challenge…)">Badges Premium exclusifs (Or, Platine, Grand Défi…)</span></li>
-        <li><span class="ck">✓</span> <span data-fr="Certificat PDF de chaque sommet atteint" data-en="PDF certificate for each summit reached">Certificat PDF de chaque sommet atteint</span></li>
-        <li><span class="ck">✓</span> <span data-fr="Sans publicité" data-en="Ad-free">Sans publicité</span></li>
+        <li><span class="ck">✓</span>Tout du plan Gratuit</li>
+        <li><span class="ck">✓</span><strong>Soumettre ses temps et figurer sur le podium</strong></li>
+        <li><span class="ck">✓</span>GPX illimités + cartes hors-ligne</li>
+        <li><span class="ck">✓</span>Badges Premium exclusifs (Or, Platine, Grand Défi…)</li>
+        <li><span class="ck">✓</span>Certificat PDF personnalisé pour chaque sommet</li>
+        <li><span class="ck">✓</span>Sans publicité</li>
       </ul>
-      <button class="btn-primary" style="width:100%;font-size:14px;padding:13px" onclick="openMod('join')" data-fr="Commencer — 4,99€/mois" data-en="Start — €4.99/month">Commencer — 4,99€/mois</button>
+      <button class="btn-primary" style="width:100%;font-size:14px;padding:13px" onclick="openMod('join')">Commencer — 4,99€/mois</button>
     </div>
   </div>
 </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Alpes3000</div>
-  <p style="margin-top:.45rem;font-size:11px;color:var(--text2)" data-fr="La référence des randonnées alpines au-delà de 3000 mètres — FR / EN" data-en="The ultimate Alpine hiking reference above 3,000m — FR / EN">La référence des randonnées alpines au-delà de 3000 mètres — FR / EN</p>
+  <p style="margin-top:.4rem;font-size:11px;color:var(--text2)">La référence des sommets alpins >3000m accessibles en trail · Une journée · Sans équipement d'alpinisme</p>
   <div class="footer-links">
-    <a data-fr="À propos" data-en="About">À propos</a>
-    <a>Contact</a>
-    <a data-fr="Mentions légales" data-en="Legal">Mentions légales</a>
-    <a>Instagram</a>
+    <a>À propos</a><a>Contact</a><a>Mentions légales</a><a>Instagram</a>
   </div>
-  <p style="margin-top:1.8rem;font-size:10px;color:var(--text3)">© 2025 Alpes3000</p>
+  <p style="margin-top:1.8rem;font-size:10px;color:var(--text3)">© 2025 Alpes3000 — Tous droits réservés</p>
 </footer>
 
-<!-- MODALS -->
-<div class="overlay" id="mod-blanc"><div class="modal">
-  <button class="modal-close" onclick="closeMod('blanc')">✕</button>
-  <span class="modal-tag">Massif du Mont-Blanc</span>
-  <div class="modal-title">Mont Blanc</div>
-  <div class="info-row"><span class="ik">Altitude</span><span class="iv">4 808 m</span></div>
-  <div class="info-row"><span class="ik">Difficulté</span><span class="iv">Expert (PD+)</span></div>
-  <div class="info-row"><span class="ik">Dénivelé</span><span class="iv">+3 800 m</span></div>
-  <div class="info-row"><span class="ik">Distance</span><span class="iv">24 km</span></div>
-  <div class="info-row"><span class="ik">Durée estimée</span><span class="iv">2 jours</span></div>
-  <div class="info-row"><span class="ik">Période conseillée</span><span class="iv">Juillet – Août</span></div>
-  <div class="info-row"><span class="ik">Équipement</span><span class="iv">Crampons, piolet, baudrier</span></div>
-  <div class="info-row"><span class="ik">Refuge</span><span class="iv">Refuge du Goûter (3 817 m)</span></div>
-  <div class="info-row"><span class="ik">Urgences</span><span class="iv">PGHM Chamonix — 04 50 53 16 89</span></div>
-  <div class="modal-acts">
-    <button class="btn-sm">⬇ Télécharger GPX</button>
-    <button class="btn-ghost" style="font-size:13px;padding:8px 18px" onclick="closeMod('blanc');goto('leaderboard')">📊 Classement</button>
+<!-- MODAL SOMMET (dynamique) -->
+<div class="overlay" id="mod-sommet">
+  <div class="modal">
+    <button class="modal-close" onclick="closeMod('sommet')">✕</button>
+    <span class="modal-tag" id="mod-massif"></span>
+    <div class="modal-title" id="mod-name"></div>
+    <div class="modal-record">
+      <div class="modal-record-label">🏆 Record actuel</div>
+      <div class="modal-record-val" id="mod-record"></div>
+      <div class="modal-record-by" id="mod-record-by"></div>
+    </div>
+    <div class="info-grid" id="mod-infogrid"></div>
+    <div class="info-full"><div class="info-full-label">📍 Départ</div><div class="info-full-val" id="mod-depart"></div></div>
+    <div class="info-full"><div class="info-full-label">🗓 Période conseillée</div><div class="info-full-val" id="mod-periode"></div></div>
+    <div class="info-full"><div class="info-full-label">👟 Équipement recommandé</div><div class="info-full-val" id="mod-equip"></div></div>
+    <div class="info-full"><div class="info-full-label">ℹ️ Description</div><div class="info-full-val" id="mod-desc"></div></div>
+    <div class="modal-acts">
+      <button class="btn-sm" id="mod-gpx-btn">⬇ Télécharger GPX</button>
+      <button class="btn-ghost" style="font-size:13px;padding:8px 16px" onclick="closeMod('sommet');goto('leaderboard')">📊 Classement</button>
+      <button class="btn-ghost" style="font-size:13px;padding:8px 16px" onclick="closeMod('sommet');openMod('submit')">⏱ Soumettre un temps</button>
+    </div>
   </div>
-</div></div>
+</div>
 
-<div class="overlay" id="mod-ecrins"><div class="modal">
-  <button class="modal-close" onclick="closeMod('ecrins')">✕</button>
-  <span class="modal-tag">Massif des Écrins</span>
-  <div class="modal-title">Barre des Écrins</div>
-  <div class="info-row"><span class="ik">Altitude</span><span class="iv">4 102 m</span></div>
-  <div class="info-row"><span class="ik">Difficulté</span><span class="iv">Expert (AD)</span></div>
-  <div class="info-row"><span class="ik">Dénivelé</span><span class="iv">+2 400 m</span></div>
-  <div class="info-row"><span class="ik">Distance</span><span class="iv">18 km</span></div>
-  <div class="info-row"><span class="ik">Durée estimée</span><span class="iv">1,5 jours</span></div>
-  <div class="info-row"><span class="ik">Période conseillée</span><span class="iv">Juillet – Début Septembre</span></div>
-  <div class="info-row"><span class="ik">Équipement</span><span class="iv">Crampons, piolet, corde recommandée</span></div>
-  <div class="modal-acts">
-    <button class="btn-sm">⬇ Télécharger GPX</button>
-    <button class="btn-ghost" style="font-size:13px;padding:8px 18px">📊 Classement</button>
+<!-- MODAL SUBMIT -->
+<div class="overlay" id="mod-submit">
+  <div class="modal">
+    <button class="modal-close" onclick="closeMod('submit')">✕</button>
+    <span class="modal-tag">Concours — Vérification automatique</span>
+    <div class="modal-title">Soumettre un temps</div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:1.2rem;line-height:1.7">Uploadez votre fichier GPS. Notre système vérifie le tracé, l'altitude atteinte et valide votre temps en moins d'une minute.</p>
+    <div class="upload-area">
+      <div style="font-size:2.2rem;margin-bottom:.65rem">📂</div>
+      <p style="font-size:13px;color:var(--text2)">Glissez votre fichier ici ou <strong style="color:var(--sky)">cliquez pour choisir</strong></p>
+      <p style="font-size:11px;color:var(--text3);margin-top:.4rem">Formats acceptés : .GPX · .FIT (Garmin) · .TCX · .KML</p>
+    </div>
+    <div class="premium-note">⭐ Fonctionnalité réservée aux membres Premium — Le chrono ne compte que si vous êtes abonné</div>
+    <div class="modal-acts" style="margin-top:1.2rem">
+      <button class="btn-primary" onclick="closeMod('submit');openMod('join')">Passer Premium</button>
+      <button class="btn-ghost" style="font-size:13px;padding:10px 18px" onclick="closeMod('submit')">Annuler</button>
+    </div>
   </div>
-</div></div>
+</div>
 
-<div class="overlay" id="mod-casse"><div class="modal">
-  <button class="modal-close" onclick="closeMod('casse')">✕</button>
-  <span class="modal-tag">Massif de la Vanoise</span>
-  <div class="modal-title">Grande Casse</div>
-  <div class="info-row"><span class="ik">Altitude</span><span class="iv">3 855 m</span></div>
-  <div class="info-row"><span class="ik">Difficulté</span><span class="iv">Intermédiaire (PD)</span></div>
-  <div class="info-row"><span class="ik">Dénivelé</span><span class="iv">+1 900 m</span></div>
-  <div class="info-row"><span class="ik">Distance</span><span class="iv">14 km</span></div>
-  <div class="info-row"><span class="ik">Durée estimée</span><span class="iv">1 journée</span></div>
-  <div class="info-row"><span class="ik">Période conseillée</span><span class="iv">Juillet – Septembre</span></div>
-  <div class="info-row"><span class="ik">Équipement</span><span class="iv">Crampons légers, bâtons</span></div>
-  <div class="modal-acts">
-    <button class="btn-sm">⬇ Télécharger GPX</button>
-    <button class="btn-ghost" style="font-size:13px;padding:8px 18px">📊 Classement</button>
-  </div>
-</div></div>
-
-<div class="overlay" id="mod-submit"><div class="modal">
-  <button class="modal-close" onclick="closeMod('submit')">✕</button>
-  <span class="modal-tag">Concours — Vérification automatique</span>
-  <div class="modal-title">Soumettre un temps</div>
-  <p style="font-size:13px;color:var(--text2);margin-bottom:1.2rem;line-height:1.7">Uploadez votre fichier GPS. Notre système vérifie le tracé, l'altitude et valide votre temps en moins d'une minute.</p>
-  <div class="upload-area">
-    <div style="font-size:2.2rem;margin-bottom:.65rem">📂</div>
-    <p style="font-size:13px;color:var(--text2)">Glissez votre fichier ici ou <strong style="color:var(--sky)">cliquez pour choisir</strong></p>
-    <p style="font-size:11px;color:var(--text3);margin-top:.4rem">Formats : .GPX · .FIT (Garmin) · .TCX</p>
-  </div>
-  <div class="premium-note">⭐ Fonctionnalité Premium — Abonnez-vous pour participer aux concours</div>
-  <div class="modal-acts" style="margin-top:1.2rem">
-    <button class="btn-primary" onclick="closeMod('submit');openMod('join')">Passer Premium</button>
-    <button class="btn-ghost" style="font-size:13px;padding:10px 18px" onclick="closeMod('submit')">Annuler</button>
-  </div>
-</div></div>
-
-<div class="overlay" id="mod-join"><div class="modal">
-  <button class="modal-close" onclick="closeMod('join')">✕</button>
-  <span class="modal-tag">Rejoindre Alpes3000</span>
-  <div class="modal-title">Créer un compte</div>
-  <p style="font-size:13px;color:var(--text2);margin-bottom:1.2rem">Gratuit pour commencer. Passez Premium à tout moment.</p>
-  <div class="form-group">
+<!-- MODAL JOIN -->
+<div class="overlay" id="mod-join">
+  <div class="modal">
+    <button class="modal-close" onclick="closeMod('join')">✕</button>
+    <span class="modal-tag">Rejoindre Alpes3000</span>
+    <div class="modal-title">Créer un compte</div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:1.2rem">Gratuit pour commencer. Passez Premium à tout moment pour accéder aux concours.</p>
     <input class="form-input" type="text" placeholder="Prénom et nom"/>
     <input class="form-input" type="email" placeholder="Email"/>
     <input class="form-input" type="password" placeholder="Mot de passe"/>
+    <button class="btn-primary" style="width:100%;font-size:14px;padding:13px">Créer mon compte gratuit →</button>
+    <p style="text-align:center;font-size:12px;color:var(--text2);margin-top:1rem">Déjà un compte ? <a style="color:var(--sky);cursor:pointer">Se connecter</a></p>
   </div>
-  <button class="btn-primary" style="width:100%;font-size:14px;padding:13px">Créer mon compte gratuit →</button>
-  <p style="text-align:center;font-size:12px;color:var(--text2);margin-top:1rem">Déjà un compte ? <a style="color:var(--sky);cursor:pointer">Se connecter</a></p>
-</div></div>
+</div>
 
 <script>
+// ═══════════════════════════════════════
+// BASE DE DONNÉES DES 15 SOMMETS
+// ═══════════════════════════════════════
+const SOMMETS = [
+  {
+    id:1, nom:"Pain de Sucre", massif:"Queyras", region:"Hautes-Alpes",
+    altitude:3208, denivele:540, distance:6.3, duree:"2h30",
+    difficulte:"Facile", couleur:"f",
+    depart:"Col Agnel (2748m) ou Col Vieux (2806m)",
+    periode:"Juin à Octobre",
+    equip:"Chaussures de trail, bâtons optionnels. Aucun équipement technique.",
+    desc:"Le sommet le plus accessible de cette liste. Départ depuis le col Agnel (2ème plus haut col routier des Alpes), montée courte sur terrain herbeux puis rocheux. Vue 360° sur le Queyras et le Viso. Parfait pour un premier 3000m en trail.",
+    record:"1h28", recordBy:"Marc D.",
+    gpxUrl:"#", gradient:["#0e2040","#050d1a"]
+  },
+  {
+    id:2, nom:"Mont Pelat", massif:"Mercantour", region:"Alpes-de-Haute-Provence",
+    altitude:3052, denivele:1010, distance:16.8, duree:"5h",
+    difficulte:"Modéré", couleur:"m",
+    depart:"Parking du lac d'Allos (2250m), commune d'Allos",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail. Bâtons recommandés. Veste coupe-vent.",
+    desc:"Le 3000m le plus facile des Alpes du Sud. Départ depuis le lac d'Allos (plus grand lac naturel d'Europe en altitude). Belle ascension sur terrain non technique avec vue spectaculaire sur le lac d'Allos et les Alpes maritimes. Idéal pour les traileurs intermédiaires.",
+    record:"2h45", recordBy:"Antoine V.",
+    gpxUrl:"#", gradient:["#102035","#050d1a"]
+  },
+  {
+    id:3, nom:"Pointe des Fours", massif:"Vanoise", region:"Savoie",
+    altitude:3073, denivele:550, distance:6.0, duree:"2h45",
+    difficulte:"Facile", couleur:"f",
+    depart:"Parking du barrage de Tignes (2100m), Val d'Isère",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de randonnée ou trail. Terrain facile, aucun équipement technique.",
+    desc:"L'une des ascensions 3000m les plus accessibles des Alpes. Court dénivelé depuis Tignes, sentier bien tracé à travers les alpages de la Vanoise. Vue magnifique sur les glaciers de la Vanoise et la Grande Motte. Parfait pour débutants en trail d'altitude.",
+    record:"1h42", recordBy:"Emma S.",
+    gpxUrl:"#", gradient:["#0a1830","#050d1a"]
+  },
+  {
+    id:4, nom:"Grande Sassière", massif:"Alpes Grées", region:"Savoie",
+    altitude:3747, denivele:1360, distance:11.9, duree:"6h20",
+    difficulte:"Sportif", couleur:"s",
+    depart:"Parking Les Arsets (2387m), commune de Sainte-Foy-Tarentaise",
+    periode:"Fin juillet à mi-septembre (neige tardive sur la crête)",
+    equip:"Chaussures de trail à bonne accroche. Bâtons recommandés. Veste et couche thermique.",
+    desc:"Réputée être le plus haut sommet randonnable de France hors alpinisme à 3747m. Itinéraire non officiel — pas de balisage, repérage requis. Crête finale exposée demandant de l'expérience. Vue absolument exceptionnelle sur Mont Blanc, Cervin, Mont Rose et Grand Paradis. Pour traileurs expérimentés.",
+    record:"3h18", recordBy:"Julien M.",
+    gpxUrl:"#", gradient:["#0a1540","#050d1a"]
+  },
+  {
+    id:5, nom:"Mont Thabor", massif:"Cerces", region:"Savoie / Hautes-Alpes",
+    altitude:3178, denivele:1290, distance:22.3, duree:"7h",
+    difficulte:"Modéré", couleur:"m",
+    depart:"Refuge du Mont Thabor / Valfréjus (1358m) ou Valmeinier (1800m)",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail. Bâtons fortement recommandés. Coupe-vent et ravitaillement.",
+    desc:"L'un des 3000m les plus emblématiques des Alpes françaises, reconnaissable à sa chapelle sommitale. Vue à 360° sur les Écrins, la Vanoise, le Mont Blanc et les Aiguilles d'Arves. Depuis Valfréjus c'est l'itinéraire favori des traileurs. Long mais jamais technique. Grand classique à ne pas manquer.",
+    record:"3h55", recordBy:"Claire D.",
+    gpxUrl:"#", gradient:["#0c1a35","#050d1a"]
+  },
+  {
+    id:6, nom:"Mont Buet", massif:"Giffre", region:"Haute-Savoie",
+    altitude:3096, denivele:1730, distance:19.8, duree:"8h",
+    difficulte:"Sportif", couleur:"s",
+    depart:"Vallorcine / Le Couteray (1235m), vallée de Chamonix",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail robustes. Bâtons indispensables. Veste, coupe-vent. Départ tôt obligatoire.",
+    desc:"Surnommé le 'Mont Blanc des dames', offre une vue spectaculaire sur tout le massif du Mont Blanc et les Aiguilles de Chamonix. Dénivelé important mais sans difficulté technique. Long effort pur, idéal pour les traileurs endurants. Montée classique au printemps pour les skieurs. Un 3000m complet et sauvage.",
+    record:"4h22", recordBy:"Pierre L.",
+    gpxUrl:"#", gradient:["#0e1a30","#050d1a"]
+  },
+  {
+    id:7, nom:"Mont Chaberton", massif:"Queyras / Front franco-italien", region:"Hautes-Alpes",
+    altitude:3131, denivele:1250, distance:13.0, duree:"5h",
+    difficulte:"Modéré", couleur:"m",
+    depart:"Montgenèvre (1850m) ou route du Chaberton depuis Cesana (côté italien)",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail. Bâtons utiles. Parcours historique avec fortifications à visiter.",
+    desc:"Sommet remarquable avec ses fortifications militaires Franco-Italiennes au sommet (fort du Chaberton). Vue saisissante sur la frontière franco-italienne, Briançonnais, Queyras et massif des Écrins. Montée sur terrain minéral avec crêtes vertigineuses. Histoire fascinante en plus du défi sportif.",
+    record:"2h58", recordBy:"Mathieu G.",
+    gpxUrl:"#", gradient:["#0f1c35","#050d1a"]
+  },
+  {
+    id:8, nom:"Aiguille de la Grande Motte", massif:"Vanoise", region:"Savoie",
+    altitude:3653, denivele:953, distance:10.0, duree:"5h",
+    difficulte:"Modéré", couleur:"m",
+    depart:"Télécabine Grande Motte, Tignes (2100m) — montée à pied depuis Tignes-le-Lac",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail robustes avec crampons légers en début de saison. Bâtons recommandés.",
+    desc:"Sommet emblématique de la Vanoise accessible par un itinéraire de trail bien tracé. Vue panoramique sur les glaciers de la Vanoise, Grande Casse, et les Alpes italiennes. Terrain parfois neigeux en début de saison. L'un des plus beaux panoramas des Alpes pour un effort raisonnable.",
+    record:"2h52", recordBy:"Sébastien K.",
+    gpxUrl:"#", gradient:["#0a1838","#050d1a"]
+  },
+  {
+    id:9, nom:"Pic du Mas de la Grave", massif:"Écrins", region:"Isère / Hautes-Alpes",
+    altitude:3020, denivele:1250, distance:23.5, duree:"8h30",
+    difficulte:"Sportif", couleur:"s",
+    depart:"Village du Chazelet (1780m), commune de La Grave",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail. Bâtons. Coupe-vent. Ravitaillement suffisant pour une longue sortie.",
+    desc:"Face à la mythique Meije (3984m), ce sommet offre un panorama à 360° époustouflant sur les Grandes Rousses et les Écrins. Longue approche dans le vallon de la Buffe puis univers lunaire de schistes. Arête sommitale légèrement aérienne mais non technique. Pour traileurs endurants cherchant l'effort pur.",
+    record:"4h48", recordBy:"François B.",
+    gpxUrl:"#", gradient:["#0d1c30","#050d1a"]
+  },
+  {
+    id:10, nom:"Tête de la Fréma", massif:"Ubaye / Chambeyron", region:"Alpes-de-Haute-Provence",
+    altitude:3151, denivele:1250, distance:20.0, duree:"7h",
+    difficulte:"Modéré", couleur:"m",
+    depart:"Village de Foulliouse (1893m), vallée du Var",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail. Bâtons recommandés. Coupe-vent. Belle solitude garantie.",
+    desc:"Sommet dominant le lac des Neuf Couleurs, niché au cœur d'un cirque aux tons ocre absolument spectaculaire. Dans la Réserve Naturelle de Chambeyron. Paysages aux tons ocre et rouille uniques dans les Alpes. Itinéraire peu fréquenté — idéal pour qui cherche la solitude et la beauté brute.",
+    record:"3h38", recordBy:"Amélie T.",
+    gpxUrl:"#", gradient:["#101828","#050d1a"]
+  },
+  {
+    id:11, nom:"Pointe de l'Observatoire", massif:"Vanoise", region:"Savoie",
+    altitude:3015, denivele:1000, distance:12.0, duree:"5h",
+    difficulte:"Modéré", couleur:"m",
+    depart:"Parking du barrage du Plan d'Amont (1810m), Aussois",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail. Bâtons utiles. Dénivelé modéré, accessible aux traileurs réguliers.",
+    desc:"Classique du Parc National de la Vanoise avec un dénivelé très accessible pour un 3000m. Traversée de lacs de montagne, alpages et zones rocheuses magnifiques. Passage par le refuge du Fond d'Aussois puis col d'Aussois. Les derniers mètres sur plateau rocheux avec vue sur les glaciers de la Vanoise.",
+    record:"2h38", recordBy:"Nathalie P.",
+    gpxUrl:"#", gradient:["#0b1730","#050d1a"]
+  },
+  {
+    id:12, nom:"Mortice", massif:"Ubaye", region:"Alpes-de-Haute-Provence",
+    altitude:3169, denivele:1100, distance:13.0, duree:"5h30",
+    difficulte:"Modéré", couleur:"m",
+    depart:"Parking de Vars-Sainte-Marie (2250m), station de Vars",
+    periode:"Juillet à Septembre",
+    equip:"Chaussures de trail. Départ en altitude depuis Vars, effort réduit.",
+    desc:"Départ depuis les alpages de Vars en altitude, approche rapide des premiers sommets. Montée vers le lac des Neuf Couleurs (l'un des plus beaux des Alpes du Sud) puis ascension finale sur la Mortice. Vue sur Panestrel, Pic des Houerts et Font Sancte. Sommet entre Haute-Ubaye et Val d'Escreins.",
+    record:"2h55", recordBy:"David C.",
+    gpxUrl:"#", gradient:["#0c1c32","#050d1a"]
+  },
+  {
+    id:13, nom:"Mont Cenis (sommet W)", massif:"Alpes Grées", region:"Savoie",
+    altitude:3082, denivele:850, distance:11.0, duree:"4h",
+    difficulte:"Facile", couleur:"f",
+    depart:"Parking du Lac du Mont Cenis (1974m), route du col",
+    periode:"Juin à Octobre",
+    equip:"Chaussures de trail. Terrain facile depuis le lac. Panorama immédiat sur la Vanoise.",
+    desc:"Très beau sommet accessible depuis le lac du Mont Cenis, à la frontière franco-italienne. Montée progressive sur terrain herbeux puis rocheux. Panorama exceptionnel sur la Vanoise et les Alpes Grées. Peu fréquenté malgré sa facilité d'accès. Parfait pour une sortie trail rapide et engagée.",
+    record:"2h12", recordBy:"Isabelle F.",
+    gpxUrl:"#", gradient:["#0a1830","#050d1a"]
+  },
+  {
+    id:14, nom:"Pic de l'Étendard", massif:"Grandes Rousses", region:"Isère",
+    altitude:3464, denivele:1400, distance:18.0, duree:"7h",
+    difficulte:"Sportif", couleur:"s",
+    depart:"Col de la Croix de Fer (2068m), Savoie",
+    periode:"Fin juillet à mi-septembre (glacier, crampons légers conseillés fin de saison)",
+    equip:"Chaussures de trail robustes. Crampons légers en début de saison. Bâtons indispensables.",
+    desc:"Remontée du glacier de Saint-Sorlin (surveillance des conditions obligatoire). Le plus beau 3000m+ des Grandes Rousses avec une vue complète à 360° sur Belledonne, Écrins, Vanoise et Mont Blanc. Effort soutenu mais jamais technique hors glacier. Un grand 3000 pour traileurs expérimentés.",
+    record:"3h45", recordBy:"Romain A.",
+    gpxUrl:"#", gradient:["#0e1835","#050d1a"]
+  },
+  {
+    id:15, nom:"Dôme de Chasseforêt", massif:"Vanoise", region:"Savoie",
+    altitude:3586, denivele:1500, distance:15.0, duree:"7h",
+    difficulte:"Sportif", couleur:"s",
+    depart:"Pralognan-la-Vanoise (1418m) par le Col de Chavière",
+    periode:"Août à mi-septembre (conditions nivales à surveiller)",
+    equip:"Chaussures de trail robustes. Crampons légers selon conditions. Bâtons indispensables. Vêtements chauds.",
+    desc:"Depuis Pralognan, montée par le Col de Chavière (plus haut col non glaciaire des Alpes à 3796m!) puis traversée vers le Dôme. Vue royale sur les glaciers de Gébroulaz et de Chavière, Grande Casse et toute la Vanoise. Terrain exigeant en fin de saison. Pour les traileurs aguerris recherchant l'altitude.",
+    record:"4h10", recordBy:"Nicolas B.",
+    gpxUrl:"#", gradient:["#0c1a38","#050d1a"]
+  }
+];
+
+// ═══════════════════════════════════════
+// GÉNÉRATION DES CARTES
+// ═══════════════════════════════════════
+function mountainSVG(g, alt) {
+  const seed = alt % 100;
+  const shapes = [
+    `M0 180 L${40+seed} ${90+seed%20} L${80+seed%15} ${140} L${130+seed%25} ${50+seed%30} L${180+seed%20} ${120} L${220} ${70+seed%25} L260 180Z`,
+    `M0 180 L30 ${110+seed%20} L90 ${160} L140 ${55+seed%25} L190 ${130} L230 ${80+seed%20} L260 180Z`
+  ];
+  const s = shapes[seed % 2];
+  return `<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="mg${alt}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${g[0]}"/>
+        <stop offset="100%" stop-color="${g[1]}"/>
+      </linearGradient>
+    </defs>
+    <rect width="260" height="180" fill="url(#mg${alt})"/>
+    <path d="${s}" fill="rgba(58,157,216,0.2)"/>
+    <circle cx="${130+seed%20}" cy="${50+seed%25}" r="2.5" fill="#e8b84b"/>
+  </svg>`;
+}
+
+function renderCards(filter) {
+  const grid = document.getElementById('hikesGrid');
+  grid.innerHTML = '';
+  let count = 0;
+  SOMMETS.forEach((s, i) => {
+    const match = filter === 'all' ||
+      s.difficulte === filter ||
+      s.massif.includes(filter) ||
+      s.region.includes(filter);
+    const card = document.createElement('div');
+    card.className = 'hike-card reveal' + (match ? '' : ' hidden');
+    card.innerHTML = `
+      <div class="hike-img">
+        ${mountainSVG(s.gradient, s.altitude)}
+        <span class="alt-badge">${s.altitude.toLocaleString('fr')} m</span>
+        <span class="diff-badge diff-${s.couleur}">${s.difficulte}</span>
+        <span class="massif-tag">${s.massif}</span>
+      </div>
+      <div class="hike-body">
+        <div class="hike-name">${s.nom}</div>
+        <div class="hike-region">${s.region}</div>
+        <div class="hike-stats">
+          <div class="hs"><span class="hs-v">+${s.denivele}m</span><span class="hs-k">Dénivelé</span></div>
+          <div class="hs"><span class="hs-v">${s.distance} km</span><span class="hs-k">Distance</span></div>
+          <div class="hs"><span class="hs-v">${s.duree}</span><span class="hs-k">Durée moy.</span></div>
+        </div>
+        <div class="hike-foot">
+          <div class="best-time">🏆 Record : <strong>${s.record}</strong></div>
+          <button class="btn-sm" onclick="showSommet(${s.id})">Voir la fiche</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+    if (match) count++;
+    setTimeout(() => card.classList.add('on'), i * 55);
+  });
+  document.getElementById('noResult').style.display = count === 0 ? 'block' : 'none';
+}
+
+function filterHikes(val, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(val);
+}
+
+// ═══════════════════════════════════════
+// MODAL SOMMET
+// ═══════════════════════════════════════
+function showSommet(id) {
+  const s = SOMMETS.find(x => x.id === id);
+  if (!s) return;
+  document.getElementById('mod-massif').textContent = s.massif + ' — ' + s.region;
+  document.getElementById('mod-name').textContent = s.nom;
+  document.getElementById('mod-record').textContent = s.record;
+  document.getElementById('mod-record-by').textContent = 'par ' + s.recordBy + ' · vérifié GPX ✓';
+  document.getElementById('mod-depart').textContent = s.depart;
+  document.getElementById('mod-periode').textContent = s.periode;
+  document.getElementById('mod-equip').textContent = s.equip;
+  document.getElementById('mod-desc').textContent = s.desc;
+  document.getElementById('mod-infogrid').innerHTML = `
+    <div class="info-box"><div class="ib-k">Altitude</div><div class="ib-v">${s.altitude.toLocaleString('fr')} m</div></div>
+    <div class="info-box"><div class="ib-k">Difficulté</div><div class="ib-v">${s.difficulte}</div></div>
+    <div class="info-box"><div class="ib-k">Dénivelé</div><div class="ib-v">+${s.denivele} m</div></div>
+    <div class="info-box"><div class="ib-k">Distance A/R</div><div class="ib-v">${s.distance} km</div></div>
+    <div class="info-box"><div class="ib-k">Durée estimée</div><div class="ib-v">${s.duree}</div></div>
+    <div class="info-box"><div class="ib-k">Massif</div><div class="ib-v">${s.massif}</div></div>`;
+  openMod('sommet');
+}
+
+// ═══════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════
+function openMod(id) {
+  document.querySelectorAll('.overlay').forEach(m => m.classList.remove('open'));
+  document.getElementById('mod-' + id).classList.add('open');
+}
+function closeMod(id) { document.getElementById('mod-' + id).classList.remove('open'); }
+document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); }));
+function goto(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+
 // NAV scroll
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
 });
 
 // REVEAL
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*90);});
-},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// MODALS
-function openMod(id){document.querySelectorAll('.overlay').forEach(m=>m.classList.remove('open'));document.getElementById('mod-'+id).classList.add('open');}
-function closeMod(id){document.getElementById('mod-'+id).classList.remove('open');}
-document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
-
-// SCROLL TO
-function goto(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('on'), i * 80); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 // COUNTER
-function counter(el,target){let c=0,step=target/55;const t=setInterval(()=>{c+=step;if(c>=target){c=target;clearInterval(t);}el.textContent=Math.round(c).toLocaleString('fr');},18);}
-const cObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.stat-n').forEach(el=>counter(el,+el.dataset.target));cObs.disconnect();}});},{threshold:.5});
-const sb=document.querySelector('.stats-bar');if(sb)cObs.observe(sb);
-
-// BILINGUAL
-let lang='fr';
-function setLang(l){
-  lang=l;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
-  document.querySelectorAll('[data-fr]').forEach(el=>{
-    if(el.tagName==='INPUT'||el.tagName==='BUTTON')return;
-    const val=el.dataset[l];
-    if(val&&!el.querySelector('em'))el.innerHTML=val;
-    else if(val)el.textContent=val;
-  });
+function counter(el, target) {
+  let c = 0, step = target / 50;
+  const t = setInterval(() => {
+    c += step;
+    if (c >= target) { c = target; clearInterval(t); }
+    el.textContent = Math.round(c).toLocaleString('fr');
+  }, 20);
 }
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.stat-n').forEach(el => counter(el, +el.dataset.target));
+      cObs.disconnect();
+    }
+  });
+}, { threshold: .5 });
+const sb = document.querySelector('.stats-bar'); if (sb) cObs.observe(sb);
+
+// INIT
+renderCards('all');
 </script>
 </body>
 </html>
