@@ -807,7 +807,7 @@ uploadArea.addEventListener('drop', e => {
 
 async function submitTime() {
   if (!currentUser) {
-    toast('Connecte-toi d\\'abord pour soumettre un temps', 'error');
+    toast("Connecte-toi d'abord pour soumettre un temps", 'error');
     closeMod('submit'); openMod('join');
     return;
   }
@@ -856,8 +856,8 @@ function setAuthMode(mode) {
   document.getElementById('authTitle').textContent = mode==='signup' ? 'Créer un compte' : 'Se connecter';
   document.getElementById('authSubmitBtn').textContent = mode==='signup' ? 'Créer mon compte gratuit →' : 'Se connecter →';
   document.getElementById('authSwitchText').innerHTML = mode==='signup'
-    ? 'Déjà un compte ? <a style="color:var(--sky);cursor:pointer" onclick="setAuthMode(\\'login\\')">Se connecter</a>'
-    : 'Pas encore de compte ? <a style="color:var(--sky);cursor:pointer" onclick="setAuthMode(\\'signup\\')">Créer un compte</a>';
+    ? "Déjà un compte ? <a style=\"color:var(--sky);cursor:pointer\" onclick=\"setAuthMode('login')\">Se connecter</a>"
+    : "Pas encore de compte ? <a style=\"color:var(--sky);cursor:pointer\" onclick=\"setAuthMode('signup')\">Créer un compte</a>";
   document.getElementById('authError').style.display = 'none';
 }
 
